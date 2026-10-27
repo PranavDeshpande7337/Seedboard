@@ -1,0 +1,54 @@
+# ---------------------------------------------------------------
+# Seedboard .gitignore
+# ---------------------------------------------------------------
+
+# --- Archives: never push zips (or other bundles) ----------------
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+
+# --- Local helper scripts (environment checks, not part of the project) ---
+# Naming pattern: anything starting with check_ or ending _check.py stays local.
+# Safer habit: keep all such scripts in local_scripts/ (ignored whole).
+local_scripts/
+check_*.py
+*_check.py
+check_env*
+env_check*
+check_ollama*
+
+# --- Python virtual environment (yours is the Windows layout: venv/Scripts, venv/Lib) ---
+venv/
+.venv/
+env/
+ENV/
+
+# --- Python caches and test caches --------------------------------
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# --- Secrets (none used today; guards against future mistakes) ------
+.env
+.env.*
+*.key
+*.pem
+
+# --- Logs: keep real run logs, drop dry-run output and half-written files ---
+# logs/dry_run/ holds output from the fake stub model, so it has no research value.
+logs/dry_run/
+# run_one() writes <run_id>.jsonl.tmp first and renames it when the run finishes.
+*.tmp
+# To keep raw logs out of GitHub entirely, uncomment the next line:
+logs/
+results/
+
+# --- Editor and OS clutter ---------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
